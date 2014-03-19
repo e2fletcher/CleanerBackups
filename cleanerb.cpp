@@ -8,9 +8,9 @@ static const char *filters_executable[] = {
     "*.xls", "*.msi", "*.eml"
 };
 
-static const char *filters_executable_directory[] = {
+/*static const char *filters_executable_directory[] = {
     "RECICLER"
-};
+};*/
 
 static int callback(const char *fpath, const struct stat *sb, int typeflag) {
     /* if it's a file */
@@ -35,6 +35,14 @@ static int callback(const char *fpath, const struct stat *sb, int typeflag) {
 }
 
 int main(int argc, char* argv[]) {
-    ftw(argv[1], callback, 16);
+
+    if(argc < 3){
+        ftw("./", callback, 16);
+        return 0;
+    }
+    
+    printf("%s", argv[1]);
+    ftw(argv[2], callback, 16);
+        
     return 0;
 }
