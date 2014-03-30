@@ -4,8 +4,8 @@ cd ../
 
 if [ ! -z "$1" ]
 then
-    build/cleanerb ../$1
+    build/cleanerb $1
     exit
 fi
 
-build/cleanerb ../
+build/cleanerb
